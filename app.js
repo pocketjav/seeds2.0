@@ -334,6 +334,44 @@ app.get('/historial', (req, res) =>{
         });
     }); 
 });
+app.post('/deletey',upload.array(), (req, res) => {
+    // let reqFull = req.body;
+    let formInfo = req.body;
+    console.log(formInfo)
+
+    connection.query("delete from seeds_yard where SYu_id="+formInfo.yid+";", function (err, results, fields) {
+        if (err) {
+            res.json({success:'false', message:'Server error'});
+            throw err;
+        }
+        
+        
+        res.json({success:'true'});
+    }); 
+});
+app.post('/deleteya',upload.array(), (req, res) => {
+    // let reqFull = req.body;
+    let formInfo = req.body;
+    console.log(formInfo)
+
+    connection.query("delete from seeds_yard where SY_id="+formInfo.yid+";", function (err, results, fields) {
+        if (err) {
+            res.json({success:'false', message:'Server error'});
+            throw err;
+        }
+        
+        
+        connection.query("delete from seeds_yards where SY_id="+formInfo.yid+";", function (err, results, fields) {
+            if (err) {
+                res.json({success:'false', message:'Server error'});
+                throw err;
+            }
+            
+            
+            res.json({success:'true'});
+        }); 
+    }); 
+});
 // 404
 app.use(function (req, res, next) {
     res.status(404).render('pages/404');

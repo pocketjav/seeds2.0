@@ -30,6 +30,34 @@ $(document).ready(function(){
       window.location = '/historial'
     });
 
+    $('.delete').on('click',function(e){
+      var f= {yid: $(this).data('id')}
+      $.ajax({
+        url: "/deletey",
+        method: "POST",
+        data: f,
+        success: function(data){
+          console.log('success');
+          alert('eliminado');
+          location.reload();
+        }
+      });
+    });
+
+    $('.del').on('click',function(e){
+      var f= {yid: $(this).data('del')}
+      $.ajax({
+        url: "/deleteya",
+        method: "POST",
+        data: f,
+        success: function(data){
+          console.log('success');
+          alert('eliminado');
+          location.reload();
+        }
+      });
+    });
+
     $('#add-new-info').on('click',function(e){
       var f={ 
          yardid:$('#yard-id').text(),
@@ -49,7 +77,7 @@ $(document).ready(function(){
           data: f,
           success: function(data){
             console.log('success');
-            alert('nuevo info agregada');
+            
             location.reload();
           }
         });
