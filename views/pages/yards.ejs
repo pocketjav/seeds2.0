@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../templates/basic-meta-tags %>
+
+    <title>Welcome to seeds :)</title>
+
+    <% include ../templates/head-bootstrap %>
+    <% include ../templates/all-header-assets %>
+    <script src="scripts/yards.js"></script>
+</head>
+<body>
+
+<% include ../templates/navbar %>
+
+<div class="container">
+    <div id="welcome-message" class="row" style="text-align: center;">
+        <div class="col-xs-12">
+            <h1>My yards</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <% yards.forEach(function(yard) { %>
+        <div class="col-xs-3">
+            <% include ../templates/card %>
+        </div>
+        <% }); %>
+    </div>
+    <div class="row">
+        <h3>Agregar Yard</h3>
+        <form>
+            <div class="form-group">
+              <label for="new-yard-name">Nombre</label>
+              <input type="text" class="form-control" id="new-yard-name" >
+            </div>
+            <div class="form-group">
+                <label for="new-crop">Crop</label>
+                <input type="text" class="form-control" id="new-crop" placeholder="Manzana">
+              </div>
+              <div class="form-group">
+                <label for="new-type">Tipo</label>
+                <input type="text" class="form-control" id="new-type" placeholder="Verde, Roja">
+              </div>
+              <div class="form-group">
+                <label for="new-location">Region</label>
+                <input type="text" class="form-control" id="new-location" placeholder="Jalisco">
+              </div>
+              <div class="form-group">
+                <label for="new-description">Descripcion</label>
+                <input type="text" class="form-control" id="new-description" placeholder="Venta, Consumo Personal">
+              </div>
+              <div class="form-group">
+                <label for="new-area">Area</label>
+                <input type="text" class="form-control" id="new-area" placeholder="200">
+              </div>
+              <div class="form-group">
+                <label for="new-unity">Unidad</label>
+                <input type="text" class="form-control" id="new-unity" placeholder="km, ha">
+              </div>
+           
+            
+           
+            <button id="add-yard" class="btn btn-default">Submit</button>
+          </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../templates/basic-meta-tags %>
+
+    <title>Welcome to seeds :)</title>
+
+    <% include ../templates/head-bootstrap %>
+    <% include ../templates/all-header-assets %>
+
+</head>
+<body>
+
+<% include ../templates/navbar %>
+
+<div class="container">
+    <div id="welcome-message" style="text-align: center;">
+        <h1>Bienvenido, <%= user %>!</h1>
+        <h3>Tus cultivos</h3>
+    </div>
+    <div id="quick-yards-view">
+        <div class="row">
+            <% yards.forEach(function(yard) { %>
+            <div class="col-xs-3">
+                <% include ../templates/card %>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
